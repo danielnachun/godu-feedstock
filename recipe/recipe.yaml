@@ -1,11 +1,10 @@
 schema_version: 1
 
 context:
-  name: godu
   version: 1.5.2
 
 package:
-  name: ${{ name|lower }}
+  name: godu
   version: ${{ version }}
 
 source:
@@ -13,7 +12,7 @@ source:
   sha256: 09869710652969b8a9d227dea4ac33893b1f538197b101affa6a8a9aa6a50474
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -36,4 +35,3 @@ about:
 extra:
   recipe-maintainers:
     - danielnachun
-
