@@ -1,12 +1,15 @@
-{% set name = "godu" %}
-{% set version = "1.5.2" %}
+schema_version: 1
+
+context:
+  name: godu
+  version: 1.5.2
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/viktomas/godu/archive/v{{ version }}.tar.gz
+  url: https://github.com/viktomas/godu/archive/v${{ version }}.tar.gz
   sha256: 09869710652969b8a9d227dea4ac33893b1f538197b101affa6a8a9aa6a50474
 
 build:
@@ -14,22 +17,23 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go-nocgo') }}
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
 
-test:
-  commands:
-    - godu --help
+tests:
+  - script:
+      - godu --help
 
 about:
-  home: https://github.com/viktomas/godu
   license: MIT
   license_file:
     - LICENSE.md
     - license-files/
   summary: Simple golang utility helping to discover large files/folders
-  dev_url: https://github.com/viktomas/godu
+  homepage: https://github.com/viktomas/godu
+  repository: https://github.com/viktomas/godu
 
 extra:
   recipe-maintainers:
     - danielnachun
+
